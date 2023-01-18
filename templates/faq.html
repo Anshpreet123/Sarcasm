@@ -1,0 +1,445 @@
+<!-- {% load static %} -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>FAQs</title>
+    <!-- <link rel="icon" type="image/png" href="{% static 'images/favIcon.png' %}"/> -->
+    <link rel="icon" type="image/png" href="../static/img/register/favIcon.png"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../static/css/faq.css" />
+    <style>
+        
+
+        nav {
+            width: 100%;
+            height: 10rem;
+            color: grey;
+            align-items: center;
+            justify-content: space-evenly;
+            box-sizing: border-box;
+        }
+        #share button {
+            outline: none;
+            border-radius: 10px;
+            border: none;
+            font-size: 1.5rem;
+            font-weight: 600;
+            background-color: #ffd600;
+            color: black;
+            padding: 6px 10px;
+        }
+        
+        .share-instructions button {
+            outline: none;
+            border-radius: 10px;
+            border: none;
+            font-size: 1.5rem;
+            font-weight: 600;
+            background-color: #ffd600;
+            color: black;
+            padding: 6px 10px;
+        }
+        
+        .share-instructions {
+            position: absolute;
+            background-color: white;
+            border-radius: 1rem;
+            padding: 25px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+            z-index: 101;
+        }
+        
+        .show-modal {
+            display: block !important;
+        }
+        
+        .modal-back {
+            background-color: black;
+            opacity: 0.3;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: none;
+            top: 0%;
+            left: 0%;
+            z-index: 100;
+        }
+        .ham-nav {
+            background-color: rgb(12, 12, 88);
+            position: absolute;
+            left: 0%;
+            top: 0px;
+            width: 370px;
+            height: 370px;
+            padding-top: 70px;
+            z-index: 10;
+            border-radius: 0px 0px 9999px 0px;
+            display: none;
+            transition: 0.75s all ease-in;
+        }
+        .show {
+            display: block;
+        }
+        
+        #navbar-img {
+            height: 5rem;
+            width: auto;
+        }
+        
+        .navbar-ele {
+            padding: 5px 15px;
+            margin: 5px 0px;
+        }
+        
+        .navbar-ele a {
+            color: grey;
+            text-decoration: none;
+            font-size: 2rem;
+        }
+        
+        .col-submit {
+            text-align: center;
+        }
+        
+        nav {
+            width: 100%;
+            height: 100px;
+            flex-direction: row;
+            color: grey;
+            align-items: center;
+            justify-content: space-evenly;
+            background: #FFFFFF;
+            border: 15px solid #8C8C8C;
+            box-sizing: border-box;
+            position: fixed;
+            top: 0%;
+            left: 0%;
+            opacity: 0;
+            display: none;
+        }
+        
+        .show-nav {
+            opacity: 1;
+            display: flex;
+        }
+        
+        .slide-down {
+            transform: translateY(100px);
+        }
+        
+        .pokeball {
+            height: 5rem;
+            width: 5rem;
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+            border: 0.5rem solid #333;
+            transform-origin: center bottom;
+        }
+        
+        .pokeball .base {
+            background: #333;
+            height: 80%;
+            padding: 10%;
+        }
+        
+        .pokeball .upper-half {
+            position: absolute;
+            background: #f15324;
+            height: 42%;
+            width: 100%;
+        }
+        
+        .pokeball .lower-half {
+            bottom: 0;
+            position: absolute;
+            background: white;
+            height: 42%;
+            width: 100%;
+        }
+        
+        .pokeball .inner-circle {
+            border-radius: 50%;
+            height: 20%;
+            width: 20%;
+            background: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border: 0.5rem solid #333;
+            transform: translate(-50%, -50%);
+        }
+        
+        .indicator-inner {
+            border-radius: 50%;
+            height: 20%;
+            width: 20%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+        }
+        
+        .indicator {
+            border-radius: 50%;
+            height: 80%;
+            width: 80%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #f64c4c;
+            background: -webkit-radial-gradient(center, #f64c4c, #ff514f 0);
+            background: -moz-radial-gradient(center, #f64c4c, #ff514f 0);
+            background: radial-gradient(ellipse at center, #f64c4c, #ff514f 0);
+            opacity: 0;
+        }
+        
+        @keyframes blink {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+        
+        @keyframes shake {
+            0% {
+                transform: rotate(5deg);
+            }
+            5% {
+                transform: rotate(-5deg);
+            }
+            10% {
+                transform: rotate(5deg);
+            }
+            15% {
+                transform: rotate(-5deg);
+            }
+            20% {
+                transform: rotate(5deg);
+            }
+            25% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+        
+        .selected {
+            animation: shake 1.5s ease-in infinite;
+        }
+        
+        .selected .indicator {
+            opacity: 1;
+            animation: blink 1s ease-in-out infinite;
+        }
+        
+        .selected .indicator-inner {
+            background: #f15324;
+        }
+        
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: inherit;
+            min-width: 160px;
+            z-index: 1;
+        }
+        
+        .dropdown-content a {
+            color: #ffd600;
+            padding: 12px 10px;
+            text-decoration: none;
+            display: block;
+            font-size: large;
+            font-family: Pokemon;
+            font-weight: 400;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .navbar-ele img {
+            width: 40px;
+        }
+        
+        .team-half img {
+            width: 15rem;
+        }
+        
+        .share {
+            position: absolute;
+            height: 10rem;
+            width: 10rem;
+            bottom: 10%;
+            right: 10%;
+            border-radius: 50%;
+            background-color: cyan;
+        }
+        
+        #share img {
+            height: 66.7%;
+            width: 66.7%;
+            position: absolute;
+            top: 1.2rem;
+            right: 1.7rem;
+        }
+        
+        .score-card {
+            left: 10%;
+            display: grid;
+            grid-template-columns: 35% 65%;
+        }
+        
+        .points {
+            font-size: 7rem;
+            display: flex;
+            justify-content: center;
+            font-family: Pokemon;
+        }
+        
+        .team-half {
+            padding-left: 20px;
+        }
+        
+        .level {
+            font-size: 2.5rem;
+            margin-top: 2.3rem;
+        }
+        
+        
+    </style>
+</head>
+
+<body>
+    <span class="modal-back"></span>
+    
+    
+    </div> -->
+ 
+<div class="main">
+    <h1 class='main-heading'>FAQs</h1>
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    1. What is SARCasm?
+            </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    SARCasm is an online cryptic quiz organized by the Student Alumni Relations Cell. The participants must answer questions, riddles, and puzzles, with the key being related to our institute. It aims to introduce freshmen to life at the institute, or more fondly, the “insti life,” and offers a multitude of exciting prizes as rewards. Participants have a 48-hour window to solve questions related to insti life whose answers range from places to ‘insti lingo’, alumni and anything you can think of as long as it’s related to insti! Jumanji is only the theme for this year’s SARCasm, no questions will be related to the franchise.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    2. What is the allowed team size for SARCasm?
+            </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    This year, we are flexible with the size of the teams, with the constraint that a team of anywhere between 2-5 members, including the team leader, is allowed.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    3. What is the last date for registering for SARCasm?
+            </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    While we have no hard deadline for registrations, we suggest that you register before the beginning of the 48 hours in which the questions are available so that you can gain access to and begin solving the questions. Registration before Saturday, 7th January 2022, is recommended in order to have the best experience solving the questions.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    4. Who are allowed to register for SARCasm?
+            </button>
+            </h2>
+            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    SARCasm is open to register for Freshers of IIT Bombay. There will be a common leaderboard active during the competition.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                    5. When will the questions go live?
+            </button>
+            </h2>
+            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    The 48-hour crypt hunt will go live on Friday, 6th January 10 PM and will end on Sunday, 8th January 10 PM. Also, stay tuned to our <a href="https://www.instagram.com/sarc_iitb/">Instagram Page</a> for BONUS questions and HINTS, which would go live only for short intervals during the 48-hour event.
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script>
+        const pokeball = document.querySelector(".pokeball")
+        const nav = document.querySelector("nav")
+        const main = document.querySelector(".main")
+        const share = document.getElementById("share")
+        const shareinst = document.querySelector(".share-instructions")
+        const closebut = document.querySelector(".close-button")
+        const modalback = document.querySelector(".modal-back")
+        const mobshare = document.getElementById("mob-share")
+        pokeball.addEventListener("click", function() {
+            pokeball.classList.toggle("selected")
+            nav.classList.toggle("show-nav")
+            main.classList.toggle("slide-down")
+        })
+        share.addEventListener("click", function() {
+            shareinst.classList.add("show-modal")
+            modalback.classList.add("show-modal")
+        })
+        mobshare.addEventListener("click", function() {
+            shareinst.classList.add("show-modal")
+            modalback.classList.add("show-modal")
+        })
+        closebut.addEventListener("click", function() {
+            shareinst.classList.remove("show-modal")
+            modalback.classList.remove("show-modal")
+        })
+
+        // document.addEventListener("click", function(){
+        //     shareinst.classList.remove("show-modal")
+        // })
+    </script>
+    <script type="text/javascript">
+        button = document.getElementById("image-button");
+        instructions = document.getElementsByClassName("share-instructions");
+        button.addEventListener("click", function() {
+            instructions.classList.toggle("show-modal")
+        })
+    </script>
+</body>
+
+</html>

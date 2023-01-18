@@ -1,0 +1,398 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <script src="https://kit.fontawesome.com/3aab0d0a4c.js" crossorigin="anonymous"></script>
+    <title>SARCasm</title>
+    <link rel="icon" type="image/png" href="../static/img/register/favIcon.png"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="{%static '/css/register.css'%}" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Bebas Neue' rel='stylesheet'>
+</head>
+<body>
+    <!-- <nav>
+        <div class="navbar-ele"><a href="#"><img src="static/images/laptop_navbar.jpg" id="navbar-img"></a></div>
+    <nav>
+        <div class="navbar-ele" id="ham">
+            <a href="#"><img src="static/images/laptop_navbar.jpg" id="navbar-img"></a>
+        </div>
+        <div class="navbar-ele"><a href="#">Quiz</a></div>
+        <div class="navbar-ele"><a href="#">Leaderboard</a></div>
+        <div class="navbar-ele"><a href="#">FAQs</a></div>
+        <div class="navbar-ele"><a href="#">Team</a></div>
+        <div class="navbar-ele"><a href="#"><i class="fab fa-instagram fa-2x"></i></a></div>
+        <div class="navbar-ele"><a href="#"><i class="fab fa-facebook fa-2x"></i></a></div>
+    </nav> -->
+    <!-- <nav class="navbar">
+        <a href="#" class="toggle-button">
+            <img src="static/images/pokeball.png" style="height: 60px;transform: translateY(10px);width:45px;">
+        </a> -->
+
+    <!-- <div class="brand-title"><img src="2 3.jpg" id="navbar-img"></div>   -->
+    <!-- <img src="2 3.jpg" id="navbar-img"> -->
+    <!-- <a href="#" class="toggle-button">
+           <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <img src="2 3.jpg">
+        </a> -->
+    <!-- <div class="navbar-links">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Quiz</a></li>
+                <li><a href="#">Leaderboard</a></li>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">Team</a></li>
+                <li><a href="#"><i class="fab fa-instagram fa-2x"></i></a></li>
+                <li><a href="#"><i class="fab fa-facebook fa-2x"></i></a></li>
+            </ul>
+        </div>
+    </nav> -->
+    <!-- <script>
+        var click = 0;
+        const toggleButton = document.getElementsByClassName('toggle-button')[0]
+        const navbarLinks = document.getElementsByClassName('navbar-links')[0]
+
+        toggleButton.addEventListener('click', () => {
+            click++;
+            console.log(click);
+            navbarLinks.classList.toggle('active')
+            if (click % 2 == 1)
+                toggleButton.style.transform = "translateX(-2px)";
+            if (click % 2 == 0)
+                toggleButton.style.transform = "translateY(-10px)";
+        })
+        if (navbarLinks.classList.contains('active')) {
+            console.log("Hello");
+            toggleButton.style.transform = "translateY(-40px)";
+        }
+        //toggleButton.style.transform="translateY(-60px)";
+    </script> -->
+
+
+
+
+
+
+
+
+    <h1 class='main-heading'>SARCASM</h1>
+    <div id="gen-info-section" class="blue-back">
+
+        <div id="gen-info">
+            Put your brain into gear for it is brainstorming time brought to you by SARC! 
+            The most exhilarating, nail-biting and mind-boggling 48 hours of your life await. 
+            
+            Unleash your potential to comprehend the clues and chart the course for this exasperating, (yet enjoyable) journey, because SARCasm 2023 is here!
+            
+            Decode Insti’s Best Annual Crypt Hunt with your friends in teams of 1-5 and win exciting prizes.
+            
+            But do you have the right concoction to crack the code?</div>
+        <div class="rulebook"><a href="https://docs.google.com/document/d/1qhtFzbVny37maCZo_zIbeWeIORyaf3slE3alqxPOgWI/edit?usp=sharing">Rulebook</a></div>
+        <div class="rulebook"><a href="https://sarcasm23.sarc-iitb.org/faqs">FAQs</a></div>
+
+        <button  style="width:auto; font-family: 'Bebas Neue'; background: linear-gradient(180deg, #FFD600 0%, #FF4D00 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    letter-spacing: 0.05em;"><a href="/login" >Login</a></button>
+            
+            <div id="gen-info" style="text-align:center;transform: translateY(-20%);"> Hurry and register to find out!</div>
+    </div>
+    <br>
+    <br>
+    <div id="reg-heading" class="blue-back">
+        <h1>REGISTER</h1>
+    </div>
+    <br>
+    <br>
+    <div id="reg-section" class="blue-back">
+        <form action="" method="POST" id="reg-form">
+            {% csrf_token %}
+            <div id="reg-section-content">
+                
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg">
+                            <label>Leader Name*</label>
+                        </div>
+                        <div class="col-lg">
+                            <input type="text" name="leader_first_name" placeholder="Leader Name" required>
+                        </div>
+                        <div class="col-lg">
+                          <label>Leader Roll Number*</label>
+                      </div>
+                      <div class="col-lg">
+                        <input type="text" class="checkuser" id="name-input" title="If box turns red, it means the given rollno is registered in some other team as well" name="leader_roll_number" placeholder="Leader Roll Number" required>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg">
+                        <label for="">Leader Whatsapp Number*</label>
+                    </div>
+                    <div class="col-lg">
+                        <input type="text" name="leader_whatsapp_number" placeholder="Leader WhatsApp Number" required>
+                    </div>
+                        <div class="col-lg">
+                            <label for="">Team Name*</label>
+                        </div>
+                        <div class="col-lg">
+                            <input type="text" name="team_name" placeholder="Team Name" required>
+                        </div>
+                    </div>
+    
+                
+                      <div class="row">
+                        <div class="col-lg">
+                          <label for="">Player 2 Name</label>
+                      </div>
+                      <div class="col-lg">
+                        <input type="text" id="player2_name" name="player2_first_name" placeholder="Player2 Name">
+                      </div>
+                      <div class="col-lg">
+                        <label for="">Player 2 Roll Number</label>
+                    </div>
+                    <div class="col-lg">
+                        <input type="text" class="checkuser" id="name-input" title="If box turns red, it means the given rollno is registered in some other team as well" name="player2_roll_number" placeholder="Player2 Roll Number">
+                    </div>
+                    </div>
+                  </div>
+                    <div id="player3">
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-lg">
+                            <label for="">Player 3 Name</label>
+                        </div>
+                        <div class="col-lg">
+                            <input type="text" id="player3_name" name="player3_first_name" placeholder="Player3 Name">
+                        </div>
+                        <div class="col-lg">
+                          <label for="">Player 3 Roll Number</label>
+                      </div>
+                      <div class="col-lg">
+                        <input type="text" class="checkuser" id="name-input" title="If box turns red, it means the given rollno is registered in some other team as well" name="player3_roll_number" placeholder="Player3 Roll Number">
+                      </div>
+                      </div>
+                    </div>
+                    </div>
+                    <div id="player4">
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-lg">
+                            <label for="">Player 4 Name</label>
+                        </div>
+                        <div class="col-lg">
+                            <input type="text" id="player4_name" name="player4_first_name" placeholder="Player4 Name">
+                        </div>
+                        <div class="col-lg">
+                          <label for="">Player 4 Roll Number</label>
+                      </div>
+                      <div class="col-lg">
+                        <input type="text" class="checkuser" id="name-input" title="If box turns red, it means the given rollno is registered in some other team as well" name="player4_roll_number" placeholder="Player4 Roll Number">
+                      </div>
+                      </div>
+                    </div>
+                    </div>
+                    <div id="player5">
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-lg">
+                            <label for="">Player 5 Name</label>
+                        </div>
+                        <div class="col-lg">
+                            <input type="text" id="player5_name" name="player5_first_name" placeholder="Player5 Name">
+                        </div>
+                        <div class="col-lg">
+                          <label for="">Player 5 Roll Number</label>
+                      </div>
+                      <div class="col-lg">
+                        <input type="text" class="checkuser"  id="name-input" title="If box turns red, it means the given rollno is registered in some other team as well" name="player5_roll_number" placeholder="Player5 Roll Number">
+                      </div>
+                      </div>
+                    </div>
+                    </div>
+                    <a href="#team-logos-sec">
+                        <div style="text-align: center; margin: 2rem 0; width: 100%;">
+                            <input type="button" value="NEXT" class="btn" id="btn-next" style="width:auto; font-family: 'Bebas Neue'; background: linear-gradient(180deg, #FFD600 0%, #FF4D00 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+text-fill-color: transparent;
+letter-spacing: 0.05em;"
+>
+                        </div>
+                    </a>
+
+
+                </div>
+            </div>
+    </div>
+    </div>
+
+    </div>
+    <div class="team-logos blue-back" id="team-logos-sec">
+        <h1>
+            PICK YOUR TEAM LOGO
+        </h1>
+        <div class="container">
+            <div class="row row-logos">
+
+                <div class="col">
+                    <label>
+                        <input type="radio" name="team_logo" value="croco" >
+                        <img src="{%static '/img/register/croco.png'%}" alt="" class="logo img-fluid" checked>
+                    </label>
+                </div>
+                <div class="col">
+                    <label>
+                        <input type="radio" name="team_logo" value="deer" >
+                        <img src="{%static '/img/register/deer.png'%}" alt="" class="logo img-fluid">
+                    </label>
+                </div>
+                <div class="col">
+                    <label>
+                        <input type="radio" name="team_logo" value="leopard" >
+                        <img src="{%static '/img/register/leopard.png'%}" alt="" class="logo img-fluid">
+                    </label>
+                </div>
+            </div>
+            <div class="row row-logos">
+                <div class="col">
+                    <label>
+                        <input type="radio" name="team_logo" value="lion" >
+                        <img src="{%static '/img/register/lion.png'%}" alt="" class="logo img-fluid">
+                    </label>
+                </div>
+                <div class="col">
+                    <label>
+                        <input type="radio" name="team_logo" value="giraffe" >
+                        <img src="{%static '/img/register/giraffe.png'%}" alt="" class="logo img-fluid">
+                    </label>
+                </div>
+                <div class="col">
+                    <label>
+                        <input type="radio" name="team_logo" value="monkey" >
+                        <img src="{%static '/img/register/monkey.png'%}" alt="" class="logo img-fluid">
+                    </label>
+                </div>
+            </div>
+            <div class="row row-logos">
+                <div class="col">
+                    <label>
+                        <input type="radio" name="team_logo" value="rino" >
+                        <img src="{%static '/img/register/rino.png'%}" alt="" class="logo img-fluid">
+                    </label>
+                </div>
+                <div class="col">
+                    <label>
+                        <input type="radio" name="team_logo" value="zebra" >
+                        <img src="{%static '/img/register/zebra.png'%}" alt="" class="logo img-fluid">
+                    </label>
+                </div>
+                <div class="col">
+                    <label>
+                        <input type="radio" name="team_logo" value="elephant" >
+                        <img src="{%static '/img/register/elephant.png'%}" alt="" class="logo img-fluid">
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin: 2rem 0; width: 100%;">
+            <input type="submit" value="SUBMIT" class="btn" style="width:auto; font-family: 'Bebas Neue'; background: linear-gradient(180deg, #FFD600 0%, #FF4D00 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+text-fill-color: transparent;
+letter-spacing: 0.05em;">
+        </div>
+    </div>
+    </form>
+
+
+
+    </div>
+    <script>
+
+        $(document).ready(function() {
+            $('.checkuser').on('input', function() {
+              var field = $(this)
+              var username = $(this).val();
+              $.ajax({
+                url: '/validate_username/',
+                data: {
+                  'username': username
+                },
+                dataType: 'json',
+                success: function(data) {
+                  if (data.is_taken) {
+                    field.css("background-color", "#FF0000");
+                  }
+                  else {
+                    field.css("background-color", "#00FF00");
+                  }                  
+                }
+              });
+            });
+          });
+
+
+
+          const error ="{{error_message}}"
+          const freshie_err = "{{freshie_error_message}}"
+          {% comment %} const list = {{ repeatroll|safe }} {% endcomment %}
+          if(error.length!=0)
+            alert(error+" whose roll number(s) is are "+"-{{ repeatroll|safe }}")
+          if(freshie_err.length!=0)
+            alert(freshie_err)
+          console.log(error)
+          console.log(list)
+
+    </script>
+    <script>
+
+        $("#btn-next").click(function() {
+            $(".team-logos").addClass("show-logos")
+        })
+
+
+        $('#player2_name').keyup(function() {
+            if ($(this).val().length)
+                $('#player3').show();
+            else
+                $('#player3').hide();
+        });
+        $('#player3_name').keyup(function() {
+            if ($(this).val().length)
+                $('#player4').show();
+            else
+                $('#player4').hide();
+        });
+        $('#player4_name').keyup(function() {
+            if ($(this).val().length)
+                $('#player5').show();
+            else
+                $('#player5').hide();
+        });
+        </script>
+        <script>
+            var input = document.getElementById("name-input");
+            input.addEventListener("mouseover", function() {
+              // Create the tooltip element
+              var tooltip = document.createElement("div");
+              tooltip.innerHTML = "Enter your name";
+              tooltip.classList.add("tooltip");
+              input.parentNode.appendChild(tooltip);
+            });
+            input.addEventListener("mouseout", function() {
+              // Remove the tooltip element
+              var tooltip = input.parentNode.querySelector(".tooltip");
+              tooltip.parentNode.removeChild(tooltip);
+            });
+          </script>
+</body>
+
+</html>

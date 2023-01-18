@@ -1,0 +1,154 @@
+{% comment %} {%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static '/css/success.css'%}">
+    <link rel="stylesheet" href="https://rawcdn.githack.com/SochavaAG/example-mycode/master/_common/css/reset.css">
+
+    <title>Success Page</title>
+</head>
+<body>
+    <div class="ag-sherlock-block">
+        
+
+        <div class="ag-format-container">
+            
+          <div class="ag-sherlock">
+            <div style="font-size:300%; font-weight: bold; padding-top: 50%; padding-left:100%; width:100%;">
+                <p style="color: #F6861E; z-index:100;">Your team has been successfully registered for <i>SARCasm</i>. Check your email for the login credentials.</h1>
+                        
+                    </div>
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 270 340" class="ag-sherlock_smoke">
+              <mask id="smokeBlick1" x="0" y="0" width="100%" height="100%">
+                <image xlink:href="https://raw.githubusercontent.com/SochavaAG/example-mycode/master/pens/sherlock-smoking/images/smoke-1.png" width="168" height="238" x="58" y="92"></image>
+              </mask>
+              <mask id="smokeBlick2" x="0" y="0" width="100%" height="100%">
+                <image xlink:href="https://raw.githubusercontent.com/SochavaAG/example-mycode/master/pens/sherlock-smoking/images/smoke-3.png" width="124" height="246" x="69" y="79"></image>
+              </mask>
+              <image id="blickSmoke1" mask="url(#smokeBlick1)" xlink:href="https://raw.githubusercontent.com/SochavaAG/example-mycode/master/pens/sherlock-smoking/images/smoke-2.png" width="143" height="397" x="83" y="112.564" style="opacity: 0.5;">
+                <animate attributeName="y" attributeType="XML" from="332" to="-280" dur="12s" begin="0s" repeatCount="indefinite"></animate>
+              </image>
+              <image id="blickSmoke2" mask="url(#smokeBlick2)" xlink:href="https://raw.githubusercontent.com/SochavaAG/example-mycode/master/pens/sherlock-smoking/images/smoke-4.png" width="169" height="287" x="69" y="19.2447" style="opacity: 0.5;">
+                <animate attributeName="y" attributeType="XML" from="305" to="-180" dur="9s" begin="5s" repeatCount="indefinite"></animate>
+              </image>
+            </svg>
+          </div>
+        </div>
+        
+      </div>    
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+    (function ($) {
+  $(function () {
+
+    
+
+  });
+})(jQuery);
+</script>
+</html>%         {% endcomment %}
+
+{%load static%}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <script src="https://kit.fontawesome.com/3aab0d0a4c.js" crossorigin="anonymous"></script>
+    <title>Sarcasm</title>
+    <link rel="icon" type="image/png" href="{% static 'images/favIcon.png' %}"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="{%static '/css/register.css'%}" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Bebas Neue' rel='stylesheet'>
+    <style>
+      body {
+        height: 100vh;
+      }
+    </style>
+</head>
+<body>
+    {% comment %} <span class="modal-back"></span>
+    <nav>
+        <div class="navbar-ele"></div>
+        <div class="navbar-ele"></div>
+        <div class="navbar-ele" style="padding-right: 150px;"></div>
+        <div class="navbar-ele">
+            <a href="play"><img src="../../static/images/play.png"></a>
+        </div>
+        <div class="navbar-ele">
+            <a href="leaderboard"><img src="../../static/images/leader.png"></a>
+        </div>
+        <div class="navbar-ele">
+            <a href="faq"><img src="../../static/images/faq.png"></a>
+        </div>
+        <div class="navbar-ele">
+            <a href="team"><img src="../../static/images/team.png"></a>
+        </div>
+        <div class="navbar-ele" id="mob-share">
+            <a href="#"><img id="image-button" src="../../static/images/share.png"></a>
+            
+        </div> 
+        <div class="navbar-ele"><a href="https://www.instagram.com/sarc_iitb/"><i class="fab fa-instagram fa-2x"></i></a></div>
+        <div class="navbar-ele"><a href="https://www.facebook.com/SARC.IITB"><i class="fab fa-facebook fa-2x"></i></a></div>
+    </nav>
+ {% endcomment %}
+
+
+
+
+    <h1 class='main-heading'>SARCASM</h1>
+    <div id="gen-info-section" class="blue-back">
+
+        <div id="gen-info">Your team has successfully registered for SARCasm 2023! <br> Check your webmail for login credentials</div>
+        
+    </div>
+    <br>
+    <br>
+    {% comment %} <script>
+        const pokeball = document.querySelector(".pokeball")
+        const nav = document.querySelector("nav")
+        const main = document.querySelector(".main")
+        const share = document.getElementById("share")
+        const shareinst = document.querySelector(".share-instructions")
+        const closebut = document.querySelector(".close-button")
+        const modalback = document.querySelector(".modal-back")
+        const mobshare = document.getElementById("mob-share")
+        pokeball.addEventListener("click", function() {
+            pokeball.classList.toggle("selected")
+            nav.classList.toggle("show-nav")
+            main.classList.toggle("slide-down")
+        })
+        share.addEventListener("click", function() {
+            shareinst.classList.add("show-modal")
+            modalback.classList.add("show-modal")
+        })
+        mobshare.addEventListener("click", function() {
+            shareinst.classList.add("show-modal")
+            modalback.classList.add("show-modal")
+        })
+        closebut.addEventListener("click", function() {
+            shareinst.classList.remove("show-modal")
+            modalback.classList.remove("show-modal")
+        })
+
+        // document.addEventListener("click", function(){
+        //     shareinst.classList.remove("show-modal")
+        // })
+    </script>
+    <script type="text/javascript">
+        button = document.getElementById("image-button");
+        instructions = document.getElementsByClassName("share-instructions");
+        button.addEventListener("click", function() {
+            instructions.classList.toggle("show-modal")
+        })
+    </script> {% endcomment %}
+    
+</body>
+
+</html>
